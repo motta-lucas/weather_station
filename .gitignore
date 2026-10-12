@@ -15,6 +15,14 @@ ENV/
 uv.lock
 requirements.txt
 
+
+# TLS: private keys
+certs/*.key
+certs/*.pem
+
+# Certificates generated locally
+certs/server.crt
+
 # Pyenv
 .python-version
 
