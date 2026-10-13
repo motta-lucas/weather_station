@@ -6,7 +6,7 @@ from beanie import Document, Link
 from models.events import Event
 
 
-class User(BaseModel):
+class User(Document):
     email: EmailStr
     password: str
     events: Optional[List[Event]]
@@ -23,7 +23,7 @@ class User(BaseModel):
         }
 
 
-class UserSignIn(BaseModel):
+class UserSignIn(Document):
     email: EmailStr
     password: str
 
@@ -39,6 +39,6 @@ class UserSignIn(BaseModel):
     )
 
 
-class TokenResponse(BaseModel):
+class TokenResponse(Document):
     access_token: str
     token_type: str

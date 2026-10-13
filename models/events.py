@@ -34,7 +34,7 @@ class Event(Document):
         name = "events"
 
 
-class EventUpdate(BaseModel):
+class EventUpdate(Document):
     humidity: float | None = None
     temperature: float | None = None
     relative_pressure: float | None = None
