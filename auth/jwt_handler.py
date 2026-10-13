@@ -1,5 +1,5 @@
 import time
-from datetime import datetime
+from datetime import datetime, timezone
 
 from fastapi import HTTPException, status
 from jose import jwt, JWTError
@@ -24,7 +24,7 @@ def verify_access_token(token: str) -> dict:
 
         if expire is None:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="No access token supplied")
-        if datetime.now(datetime.timezone.utc) > datetime.fromtimestamp(expire):
+        if datetime.now(timezone.utc) > datetime.fromtimestamp(expire):
             raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Token expired!")
         return data
     except JWTError:

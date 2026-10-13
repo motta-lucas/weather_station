@@ -1,4 +1,4 @@
-from pydantic import BaseModel, EmailStr, ConfigDict
+from pydantic import BaseModel, EmailStr, ConfigDict, Field
 from typing import Optional, List
 
 from beanie import Document, Link
@@ -9,7 +9,7 @@ from models.events import Event
 class User(Document):
     email: EmailStr
     password: str
-    events: Optional[List[Event]]
+    events: List[Event] = Field(default_factory=list)
 
     class Settings:
         name = "users"
