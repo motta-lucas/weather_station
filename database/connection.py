@@ -16,7 +16,7 @@ class Settings(BaseSettings):
     DATABASE_URL: str
     SECRET_KEY: str
 
-    async def intialize_database(self):
+    async def initialize_database(self):
         client = AsyncIOMotorClient(self.DATABASE_URL)
         await init_beanie(
             database=client.get_default_database(),
