@@ -12,7 +12,7 @@ settings = Settings()
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    await Settings.initialize_database()
+    await settings.initialize_database()
     yield
 
 

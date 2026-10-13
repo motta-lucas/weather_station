@@ -18,7 +18,10 @@ class Settings(BaseSettings):
 
     async def intialize_database(self):
         client = AsyncIOMotorClient(self.DATABASE_URL)
-        await init_beanie(database=client.get_default_database(), document_models=[Event, User])
+        await init_beanie(
+            database=client.get_default_database(),
+            document_models=[Event, User],
+        )
 
     class Config:
         env_file = ".env"
