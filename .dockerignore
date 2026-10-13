@@ -7,5 +7,10 @@ __pycache__
 notebooks
 data
 .env
+.env.*
+!.env.example
 .ipynb_checkpoints
 certs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
