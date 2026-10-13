@@ -23,7 +23,7 @@ class User(Document):
         }
 
 
-class UserSignIn(Document):
+class UserSignIn(BaseModel):
     email: EmailStr
     password: str
 
@@ -39,6 +39,6 @@ class UserSignIn(Document):
     )
 
 
-class TokenResponse(Document):
+class TokenResponse(BaseModel):
     access_token: str
     token_type: str

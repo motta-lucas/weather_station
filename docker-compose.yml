@@ -1,6 +1,6 @@
 services:
   api:
-    image: lucasmotta47/weather_station_api:latest
+    image: lucasmotta47/weather_station_api:0.0.1
     command: uvicorn main:app --host 0.0.0.0 --port 8001
     expose:
       - "8001"
