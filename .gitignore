@@ -19,6 +19,9 @@ requirements.txt
 # TLS: private keys
 certs/*.key
 certs/*.pem
+certs/*.crt
+certs/*.csr
+certs/*.srl
 
 # Certificates generated locally
 certs/server.crt

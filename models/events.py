@@ -11,6 +11,8 @@ class Event(Document):
     timestamp: datetime = Field(default_factory=lambda: datetime.now().astimezone())
     device_id: str = "weather_station_01"
 
+    creator: str
+
     humidity: float
     temperature: float
     relative_pressure: float
@@ -33,6 +35,15 @@ class Event(Document):
     class Settings:
         name = "events"
 
+class EventCreate(BaseModel):
+    humidity: float
+    temperature: float
+    relative_pressure: float
+    abs_pressure: float
+    ppm: float
+    rain_reading: int
+
+    model_config = ConfigDict(extra="forbid")
 
 class EventUpdate(BaseModel):
     humidity: float | None = None
