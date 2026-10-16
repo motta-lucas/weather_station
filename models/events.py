@@ -34,6 +34,8 @@ class Event(Document):
 
     class Settings:
         name = "events"
+        indexes = ["timestamp"]
+
 
 class EventCreate(BaseModel):
     humidity: float
@@ -44,6 +46,7 @@ class EventCreate(BaseModel):
     rain_reading: int
 
     model_config = ConfigDict(extra="forbid")
+
 
 class EventUpdate(BaseModel):
     humidity: float | None = None
