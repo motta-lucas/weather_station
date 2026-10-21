@@ -12,7 +12,7 @@ services:
 
   database:
     image: mongo:${MONGO_IMAGE_TAG}
-    expose:
+    ports:
       - "${MONGO_PORT}"
     volumes:
       - data:/data/db
@@ -25,7 +25,7 @@ services:
     ports:
       - "${NGINX_HOST_PORT}:${NGINX_CONTAINER_PORT}"
     volumes:
-      - ./nginx/templates:/etc/nginx/templates:ro
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
       - ./certs:/etc/nginx/certs:ro
     environment:
       NGINX_PORT: ${NGINX_CONTAINER_PORT}
